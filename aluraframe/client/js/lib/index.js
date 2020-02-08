@@ -1,32 +1,34 @@
-let campos = [
+var campos = [
     document.querySelector('#data'),
     document.querySelector('#quantidade'),
     document.querySelector('#valor')
 ]
-console.log(campos)
+console.log(campos);
 
-let tbody = document.querySelector('table tbody')
-document.querySelector('.form').addEventListener('submit', (event) => {
-    event.preventDefault()
+var tbody = document.querySelector('table tbody');
+document.querySelector('.form').addEventListener('submit', function(event){
+    event.preventDefault();
 
-    let tr = document.createElement('tr')
-    campos.forEach((campo) => {
-        let td = document.createElement('td')
-        td.textContent = campo
-        tr.appendChild(td)
-    })
-    let tdVolume = document.createElement('td')
-    tdVolume.textContent = campos[1].value * campos[2].value
+    var tr = document.createElement('tr');
 
-    tr.appendChild(tdVolume)
-    tbody.appendChild(tr)
+    campos.forEach(function(campo) {
+        var td = document.createElement('td');
+        td.textContent = campo;
+        tr.appendChild(td);
+    });
+    
+    var tdVolume = document.createElement('td');
+    tdVolume.textContent = campos[1].value * campos[2].value;
 
-    campos[0] = ' '
-    campos[1] = ' '
-    campos [2] = ' '
+    tr.appendChild(tdVolume);
+    tbody.appendChild(tr);
 
-    campos[0].focus()
-})
+    campos[0].value = 'yyyy-MM-dd';
+    campos[1].value = 1;
+    campos [2].value = 0;
+
+    // campos[0].focus;
+});
 
 // function clearFocus() {
 //     campos[0] = ' '
