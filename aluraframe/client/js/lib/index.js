@@ -6,14 +6,14 @@ var campos = [
 console.log(campos);
 
 var tbody = document.querySelector('table tbody');
-document.querySelector('.form').addEventListener('submit', function(event){
+document.querySelector('.form').addEventListener('submit',(event) =>{
     event.preventDefault();
 
     var tr = document.createElement('tr');
 
-    campos.forEach(function(campo) {
+    campos.forEach((campo) =>{
         var td = document.createElement('td');
-        td.textContent = campo;
+        td.textContent = campo.value;
         tr.appendChild(td);
     });
     
@@ -22,18 +22,14 @@ document.querySelector('.form').addEventListener('submit', function(event){
 
     tr.appendChild(tdVolume);
     tbody.appendChild(tr);
-
-    campos[0].value = 'yyyy-MM-dd';
-    campos[1].value = 1;
-    campos [2].value = 0;
-
-    // campos[0].focus;
+    clearFocus()
 });
 
-// function clearFocus() {
-//     campos[0] = ' '
-//     campos[1] = 1
-//     campos [2] = 0
+// Função para limpar os campos e dar focus ao campos data
+function clearFocus() {
+    campos[0].value= "";
+    campos[1].value= 1;
+    campos[2].value= 0;
 
-//     campos[0].focus()
-// }
+    campos[0].focus();
+}
