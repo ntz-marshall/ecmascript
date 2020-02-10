@@ -1,6 +1,6 @@
 class Negotiations {
     constructor(data, quantidade, valor) {
-        this._data = data
+        this._data = new Date(data.getTime())
         this._quantidade = quantidade
         this._valor = valor
         Object.freeze(this)
@@ -12,7 +12,9 @@ class Negotiations {
         return this._quantidade * this._valor
     }
     get data() {
-        return this._data
+        return new Date(this._data.getTime())
+        // programação defensiva
+        // .getTime() retorna um grande número que representa a data, e o Date() aceita esse valor
     }
     get quantidade() {
         return this._quantidade

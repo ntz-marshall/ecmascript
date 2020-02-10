@@ -60,8 +60,14 @@
     </table>
     <script src="js/app/models/Negotiations.js"></script>
     <script>
-            var n1 = new Negotiations(new Date(), 5, 200.50)
-            console.log(vol)
+            let idade = 18;
+            let temCarteira = true;
+
+            if(idade >= 18 && temCarteira) {
+                let msg = 'Pode dirigir';
+                console.log(msg);
+            }
+            alert(msg);
     </script>
 </body>
 </html>
