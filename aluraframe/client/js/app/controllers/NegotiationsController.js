@@ -2,6 +2,6 @@ class NegotiationsController {
 
     addict(event) {
         event.preventDefault()
-        alert("adicionado")
+        alert("Chamei ação no controller")
     }
 }
