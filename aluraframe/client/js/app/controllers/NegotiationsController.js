@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 class NegotiationsController {
 
 		constructor() {
@@ -7,7 +8,9 @@ class NegotiationsController {
 				this._inputDate = $("#data")
 				this._inputQtt = $("#quantidade")
 				this._inputValue = $("#valor")
+				// eslint-disable-next-line no-undef
 				this._negotiationsLists = new NegotiationsLists()
+				// eslint-disable-next-line no-undef
 				this._negotiationsView = new NegotiationsView($('#negotiationsView'))
 
 				this._negotiationsView.update()
@@ -25,6 +28,7 @@ class NegotiationsController {
 
 		_createNegotiation() {
 			// Chamando diretamente na classe o método	
+			// eslint-disable-next-line no-undef
 			return new Negotiations(DateHelper.stringToDate(this._inputDate.value),	this._inputQtt.value, this._inputValue.value)
 		}
 

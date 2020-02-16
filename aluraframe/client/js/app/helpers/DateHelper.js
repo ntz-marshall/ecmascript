@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 class DateHelper {
 
     // Retorna erro ao tentar instanciar a Classe
