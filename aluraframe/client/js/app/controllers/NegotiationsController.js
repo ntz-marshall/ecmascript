@@ -8,6 +8,9 @@ class NegotiationsController {
 				this._inputQtt = $("#quantidade")
 				this._inputValue = $("#valor")
 				this._negotiationsLists = new NegotiationsLists()
+				this._negotiationsView = new NegotiationsView($('#negotiationsView'))
+
+				this._negotiationsView.update()
 		}
 	
 		addict(event) {
