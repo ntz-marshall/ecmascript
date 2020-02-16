@@ -13,17 +13,15 @@ class NegotiationsController {
 				// eslint-disable-next-line no-undef
 				this._negotiationsView = new NegotiationsView($('#negotiationsView'))
 
-				this._negotiationsView.update()
+				this._negotiationsView.update(this._negotiationsLists)
 		}
 	
-		addict(event) {
+		add(event) {
 
-			event.preventDefault()
-		
-			this._negotiationsLists.addict(this._createNegotiation)
+			event.preventDefault()		
+			this._negotiationsLists.add(this._createNegotiation())
+			this._negotiationsView.update(this._negotiationsLists)
 			this._clearForm()
-			console.log(this._negotiationsLists.negotiations)
-			
 		}
 
 		_createNegotiation() {

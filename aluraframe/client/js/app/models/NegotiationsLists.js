@@ -5,7 +5,7 @@ class NegotiationsLists {
         this._negotiations = []
     }
 
-    addict(negotiation) {
+    add(negotiation) {
         this._negotiations.push(negotiation)
     }
 
