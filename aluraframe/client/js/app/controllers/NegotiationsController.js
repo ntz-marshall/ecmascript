@@ -12,8 +12,12 @@ class NegotiationsController {
 				this._negotiationsLists = new NegotiationsLists()
 				// eslint-disable-next-line no-undef
 				this._negotiationsView = new NegotiationsView($('#negotiationsView'))
-
 				this._negotiationsView.update(this._negotiationsLists)
+				// eslint-disable-next-line no-undef
+				this._message = new Message()
+				// eslint-disable-next-line no-undef
+				this._messageView = new MessageView($('#msgView'))
+				this._messageView.update(this._message)
 		}
 	
 		add(event) {
@@ -21,6 +25,10 @@ class NegotiationsController {
 			event.preventDefault()		
 			this._negotiationsLists.add(this._createNegotiation())
 			this._negotiationsView.update(this._negotiationsLists)
+			
+			this._message.text = 'Negociação adicionada com sucesso!'
+			this._messageView.update(this._message)
+			
 			this._clearForm()
 		}
 
