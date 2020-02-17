@@ -1,12 +1,13 @@
 /* eslint-disable no-undef */
 // eslint-disable-next-line no-unused-vars
-class NegotiationsView {
+class NegotiationsView extends View {
+    // criamos uma herança a partir da palavra extends NomeClasse
 
     constructor(element) {
-        this._element = element
+        super(element)
+        // super de super classe se comunica com a classe herdada
     }
-
-    _template(model) {
+    template(model) {
 
         return ` <table class="table table-hover table-bordered">
         <thead>
@@ -19,7 +20,6 @@ class NegotiationsView {
         </thead>
         
         <tbody>
-<<<<<<< Updated upstream
         ${model.negotiations.map(n =>  `
               <tr>
                   <td>${DateHelper.dateToString(n.data)}</td>
@@ -27,18 +27,6 @@ class NegotiationsView {
                   <td>${n.valor}</td>
                   <td>${n.volume}</td>
               </tr>`).join('')}
-=======
-            ${model.negotiations.map(n => {
-                return ` 
-                    <tr>
-                            <td>${DateHelper.dateToString(n.data)}</td>
-                            <td>${n.quantidade}</td>
-                            <td>${n.valor}</td>
-                            <td>${n.volume}</td>
-                    </tr>
-                `
-            }).join("")}
->>>>>>> Stashed changes
         </tbody>
         
         <tfoot>
@@ -53,13 +41,5 @@ class NegotiationsView {
             }</td>
         </tfoot>
     </table> ` 
-    }
-
-    update(model) {
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
-        this._element.innerHTML = this._template(model)
     }
 }
