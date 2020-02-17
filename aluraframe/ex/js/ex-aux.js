@@ -45,3 +45,46 @@ let metade = numeros.map(num=> num/2);
 console.log(metade)
 let raiz = numeros.map(num => Math.sqrt(num));
 console.log(raiz)
+
+/////////////////////////////////////////////////////////////
+class Conta {
+
+    constructor(saldo) {
+        this._saldo = saldo
+    }
+
+    get saldo() {
+        return this._saldo
+    }
+
+    atualiza() {
+        throw new Error("Você deve sobrescrever o método!")
+    }
+}
+
+/////
+class ContaCorrente extends Conta {
+
+    atualiza(taxa) {
+        return this._saldo += taxa
+    }
+}
+
+/////
+class ContaPoupanca extends Conta {
+
+    atualiza(taxa) {
+        return this._saldo += (taxa *2)
+    }
+}
+
+////// e o teste
+let conta1 = new ContaCorrente(200); 
+let conta2 = new ContaPoupanca(300); 
+conta1.atualiza(2);
+conta2.atualiza(3);
+console.log(conta1.saldo); //202
+console.log(conta2.saldo); //306
+
+// No typescript podemos usar abstract class que impede alguém de instanciá-las
+//abstract class View {}
