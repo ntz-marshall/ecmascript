@@ -50,8 +50,8 @@ return numero1 + numero2
 
 console.log(somaDoisNumeros(10,30)) // exibe 40!
 
-let numeros = [10, 30]
-console.log(somaDoisNumeros(numeros[0], numeros[1]))
+let num = [10, 30]
+console.log(somaDoisNumeros(num[0], num[1]))
 
 numeros = [10,30]
 console.log(somaDoisNumeros(...numeros))
@@ -94,11 +94,11 @@ console.log(aprovados)
 
 // versão com function
 
-let aprovados = avaliacoes
+let aprovs = avaliacoes
 .filter(function(prova) { return prova.nota >= 7; })
 .map(function(prova) { return prova.aluno.nome;}) 
 
-console.log(aprovados)
+console.log(aprovs)
 
 /* ~ RegEx ~ */
 // fazer uma classe
@@ -143,20 +143,20 @@ exibeNoConsole(lista);
 
 //////////////
 
-let listaDeNomes1 = ['Flávio', 'Rogers', 'Júlia'];
-let listaDeNomes2 = ['Vieira', 'Fernanda', 'Gerson'];
-let lista = listaDeNomes1.concat(listaDeNomes2);
+let listNomes1 = ['Flávio', 'Rogers', 'Júlia'];
+let listNomes2 = ['Vieira', 'Fernanda', 'Gerson'];
+let list = listNomes1.concat(listNomes2);
 
-exibeNoConsole(lista);
-
-////////////////////
-
-let listaDeNomes1 = ['Flávio', 'Rogers', 'Júlia'];
-let listaDeNomes2 = ['Vieira', 'Fernanda', 'Gerson'];
-exibeNoConsole([].concat(listaDeNomes1, listaDeNomes2));
+exibeNoConsole(list);
 
 ////////////////////
 
-let listaDeNomes1 = ['Flávio', 'Rogers', 'Júlia'];
-let listaDeNomes2 = ['Vieira', 'Fernanda', 'Gerson'];
-exibeNoConsole([].concat(listaDeNomes1, listaDeNomes2, 'Rômulo'));
+let lisNomes1 = ['Flávio', 'Rogers', 'Júlia'];
+let lisNomes2 = ['Vieira', 'Fernanda', 'Gerson'];
+exibeNoConsole([].concat(lisNomes1, lisNomes2));
+
+////////////////////
+
+let listDeNomes1 = ['Flávio', 'Rogers', 'Júlia'];
+let listDeNomes2 = ['Vieira', 'Fernanda', 'Gerson'];
+exibeNoConsole([].concat(listDeNomes1, listDeNomes2, 'Rômulo'));

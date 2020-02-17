@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 class Validator {
     constructor(){
         let $ = document.querySelector.bind(document)
@@ -35,3 +36,12 @@ let codigo1 = new Codigo('GWZ-JJ-12'); // válido
 console.log(codigo1.texto);
 let codigo2 = new Codigo('1X1-JJ-12'); // inválido
 console.log(codigo2.texto);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+let numeros = [1,5,3,7,43,56,24]
+let dobro = numeros.map(num => num * 2);
+console.log(dobro)
+let metade = numeros.map(num=> num/2);
+console.log(metade)
+let raiz = numeros.map(num => Math.sqrt(num));
+console.log(raiz)
