@@ -29,6 +29,15 @@ class NegotiationsView {
         </tbody>
         
         <tfoot>
+            <td colspan="3"></td>
+            <td>${model.negotiations.reduce((total, n) => total + n.volume, 0.0)                
+                //(() => {
+                // Utilizaremos uma Immediately-invoked function expression (IIFE) ou a função imediata.
+                //let total = 0;
+                //model.negociacoes.forEach(n => total+= n.volume);
+                //return total;
+                //})()
+            }</td>
         </tfoot>
     </table> ` 
     }
