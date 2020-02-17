@@ -19,6 +19,7 @@ class NegotiationsView {
         </thead>
         
         <tbody>
+<<<<<<< Updated upstream
         ${model.negotiations.map(n =>  `
               <tr>
                   <td>${DateHelper.dateToString(n.data)}</td>
@@ -26,6 +27,18 @@ class NegotiationsView {
                   <td>${n.valor}</td>
                   <td>${n.volume}</td>
               </tr>`).join('')}
+=======
+            ${model.negotiations.map(n => {
+                return ` 
+                    <tr>
+                            <td>${DateHelper.dateToString(n.data)}</td>
+                            <td>${n.quantidade}</td>
+                            <td>${n.valor}</td>
+                            <td>${n.volume}</td>
+                    </tr>
+                `
+            }).join("")}
+>>>>>>> Stashed changes
         </tbody>
         
         <tfoot>
@@ -43,6 +56,10 @@ class NegotiationsView {
     }
 
     update(model) {
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         this._element.innerHTML = this._template(model)
     }
 }
