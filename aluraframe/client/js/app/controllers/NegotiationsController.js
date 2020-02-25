@@ -9,7 +9,7 @@ class NegotiationsController {
 				this._inputQtt = $("#quantidade")
 				this._inputValue = $("#valor")
 				// eslint-disable-next-line no-undef
-				this._negotiationsLists = new NegotiationsLists(model => this._negotiationsView.update(model))
+				// this._negotiationsLists = new NegotiationsLists(model => this._negotiationsView.update(model))
 				// eslint-disable-next-line no-undef
 				this._negotiationsView = new NegotiationsView($('#negotiationsView'))
 				this._negotiationsView.update(this._negotiationsLists)
@@ -19,7 +19,7 @@ class NegotiationsController {
 				this._messageView = new MessageView($('#msgView'))
 				this._messageView.update(this._message)
 		}
-		/*O this de uma função é dinâmico, isto é, seu valor é determinado no momento em que a função é chamada. Como o this é dinâmico, é possível usar artifícios da linguagem, como a API Reflect, para alterá-lo se assim desejarmos. */
+		/* O this de uma função é dinâmico, isto é, seu valor é determinado no momento em que a função é chamada. Como o this é dinâmico, é possível usar artifícios da linguagem, como a API Reflect, para alterá-lo se assim desejarmos. */
 	
 		add(event) {
 

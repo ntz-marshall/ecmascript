@@ -3,12 +3,12 @@ class NegotiationsLists {
     
     constructor(trap) {
         this._negotiations = []
-        this._trap = trap
+
     }
 
     add(negotiation) {
         this._negotiations.push(negotiation)
-        this._trap(this)
+
     }
 
     get negotiations() {
@@ -17,6 +17,6 @@ class NegotiationsLists {
 
     removeNegotiation() {
         this._negotiations = []
-        this._trap(this)
+
     }
 }
