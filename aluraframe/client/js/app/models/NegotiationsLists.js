@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 class NegotiationsLists {
     
-    constructor(trap) {
+    constructor() {
         this._negotiations = []
 
     }

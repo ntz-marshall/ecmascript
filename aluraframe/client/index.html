@@ -58,15 +58,5 @@
 	<script>
 		let negotiationsController = new NegotiationsController();
 	</script>
-	<script>
-		let negotiations = new Proxy(new Negotiations(new Date(), 3, 259), {
-			get: function (target, prop, receiver) {
-				if(['add', 'removeNegotiation'].includes(prop) && typeof(target[prop]) == typeof(Function)) {
-					
-				}
-				return Reflect(target, prop, receiver)
-			}
-		});
-	</script>
 </body>
 </html>

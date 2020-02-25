@@ -7,9 +7,21 @@ class NegotiationsController {
 				// .bind atrela o querySelector ao document, masmo passando ele para $, fazendo com que essa representação funcione
 				this._inputDate = $("#data")
 				this._inputQtt = $("#quantidade")
-				this._inputValue = $("#valor")
+        this._inputValue = $("#valor")
+        let self = this
 				// eslint-disable-next-line no-undef
-				// this._negotiationsLists = new NegotiationsLists(model => this._negotiationsView.update(model))
+				this._negotiationsLists = new Proxy(new NegotiationsLists(), {
+					get(target, prop, receiver) {
+						if(['add', 'removeNegotiation'].includes(prop) && typeof(target[prop]) == typeof(Function)) {
+							return function () {
+                console.log(`interceptando ${prop}`)
+                Reflect.apply(target[prop], target, arguments)
+                self._negotiationsView.update(target)
+							}
+						}
+						return Reflect.get(target, prop, receiver)
+					}
+				});
 				// eslint-disable-next-line no-undef
 				this._negotiationsView = new NegotiationsView($('#negotiationsView'))
 				this._negotiationsView.update(this._negotiationsLists)
