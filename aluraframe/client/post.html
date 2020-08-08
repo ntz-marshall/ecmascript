@@ -1,0 +1,102 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Negociações</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+</head>
+
+<body class="container">
+    <form class="form">
+
+        <div class="form-group">
+            <label for="data">Data</label>
+            <input type="date" id="data" class="form-control" required autofocus/>        
+        </div>    
+
+        <div class="form-group">
+            <label for="quantidade">Quantidade</label>
+            <input type="number" min="1" step="1" id="quantidade" class="form-control" value="1" required/>
+        </div>
+
+        <div class="form-group">
+            <label for="valor">Valor</label>
+            <input id="valor" type="number" class="form-control"  min="0.01" step="0.01" value="0.0" required />
+        </div>
+
+        <button class="btn btn-primary" type="submit" onclick="sendPost(event)">Enviar dados para servidor</button>
+    </form>
+  
+    <script src="js/app/models/Negotiations.js"></script>
+	<script src="js/app/models/NegotiationsLists.js"></script>
+	<script src="js/app/models/Message.js"></script>
+	<script src="js/app/controllers/NegotiationsController.js"></script>
+	<script src="js/app/helpers/DateHelper.js"></script>
+	<script src="js/app/models/Negotiations.js"></script>
+	<script src="js/app/models/NegotiationsLists.js"></script>
+	<script src="js/app/views/View.js"></script>
+	<script src="js/app/views/NegotiationsView.js"></script>
+	<script src="js/app/views/MessageView.js"></script>
+    <script src="js/app/services/ProxyFactory.js"></script>
+    <script src="js/app/helpers/Bind.js"></script>
+    <script src="js/app/services/NegotiationService.js"></script>
+  
+    <script>
+      
+        function sendPost(event) {
+
+            event.preventDefault();
+            console.log("Enviando post");
+            const $ = document.querySelector.bind(document);
+            const inputData = $('#data');
+            const inputQuantidade = $('#quantidade');
+            const inputValor = $('#valor');
+
+            const negociacao = {
+              //formato de negociação
+                data: inputData.value,
+                quantidade: inputQuantidade.value,
+                valor: inputValor.value
+            };
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "/negociacoes", true);
+            xhr.setRequestHeader("Content-type", "application/json");
+
+            xhr.onreadystatechange = () => {
+
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status == 200) {
+                        inputData.value = '';
+                        inputQuantidade.value = 1;
+                        inputValor.value = 0.0;
+                        inputData.focus();
+                        alert('Negociação enviada com sucesso');
+                    } else {
+                        alert(`Não foi possível enviar a negociação: ${xhr.responseText}`);
+                    }
+                }
+            }
+            xhr.send(JSON.stringify(negociacao));
+            //aqui você deve ler os dados do formulário
+            //construir o json
+            //enviar o XMLHttpRequest
+            /*
+            let xhr = new XMLHttpRequest()
+            let msg = new Message()
+            xhr.open('POST', 'negociacoes')
+            xhr.onload = () => {
+             var status = xhr.status; // HTTP response status, e.g., 200 for "200 OK"
+             var data = xhr.responseText; // Returned data, e.g., an HTML document.
+            }
+            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
+            xhr.send(sendPost)
+            msg._message.text('Negociação enviada com sucesso para o servidor!')
+            ar o XMLHttpRequest
+            */
+          
+        }
+    </script>
+</body>
+</html>
